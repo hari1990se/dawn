@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+class Node
+{
+	public int data;
+	public Node next;
+}
+
+class BasicFunctions
+{
+	public void insert(Node head, int data)
+	{
+		if(head == null)
+		{
+			head = new Node();
+			head.data = data;
+			head.next = null;
+		}
+		else
+		{
+			insert(head.next, data);
+		}
+	}
+	public void display(Node head)
+	{
+		if(head != null)
+		{
+			System.out.print(head.data+ "->");
+			display(head.next);
+		}
+	}
+}
+
+class LinkedListDemo
+{
+	public static void main(String... strings)
+	{
+		BasicFunctions basicfunctions = new BasicFunctions();
+		Node head = null;
+		basicfunctions.insert(head, 20);
+		basicfunctions.insert(head, 40);
+		basicfunctions.insert(head, 60);
+		basicfunctions.insert(head, 80);
+		basicfunctions.display(head);	
+	}
+}
