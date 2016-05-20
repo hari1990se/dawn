@@ -62,9 +62,6 @@ class LinkList
 
 	public void deleteLinkList(Node head)
 	{
-		/* Delete entire list because there is no head
-		   and if it c/c++ then it should call free method
-		   for each node but in java it does not require.*/
 		this.head = null;
 	}
 }
