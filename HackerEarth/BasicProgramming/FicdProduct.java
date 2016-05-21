@@ -22,5 +22,7 @@ class FicdProduct
 			result = (result * i) % 1000000007;
 		}
 		System.out.println(result);
+
+		System.out.println("Check git diff");
 	}
 }
