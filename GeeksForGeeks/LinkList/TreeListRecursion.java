@@ -39,11 +39,6 @@ class BinaryTree
 {
 	private Node root; 	
 
-	BinaryTree()
-	{
-		root = null;
-	}
-
 	public Node getRoot()
 	{
 		return this.root;
