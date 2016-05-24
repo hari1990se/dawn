@@ -54,19 +54,27 @@ class BinaryTree
 		this.root = root;
 	}
 
-	public Node insert(Node root, int data)
+	public void insert(Node root, int data)
 	{
+		Node newNode = new Node();
+		newNode.setData(data);
+		newNode.setLarge(null);
+		newNode.setSmall(null);
 		if(root == null) {
-			Node newNode = new Node();
-			newNode.setSmall(null);
-			newNode.setLarge(null);
-			newNode.setData(data);
-			return newNode;
+			this.root = newNode;
 		} else {
-			if(root.getData() < data) {
-				return insert(root.getLarge(), data);
+			if(root.getData() >= data) {
+				if(root.getSmall() != null) {
+					insert(root.getSmall(), data);
+				} else {
+					root.setSmall(newNode);
+				}
 			} else {
-				return insert(root.getSmall(), data);
+				if(root.getLarge() != null) {
+					insert(root.getLarge(), data);
+				} else {
+					root.setLarge(newNode);
+				}
 			}
 		}
 	}
@@ -85,12 +93,11 @@ class TreeListRecursion
 {
 	public static void main(String... strings) {
 		BinaryTree binaryTree = new BinaryTree();
-		binaryTree.setRoot(binaryTree.insert(binaryTree.getRoot(), 5));
-		binaryTree.setRoot(binaryTree.insert(binaryTree.getRoot(), 15));
-		binaryTree.setRoot(binaryTree.insert(binaryTree.getRoot(), 52));
-		binaryTree.setRoot(binaryTree.insert(binaryTree.getRoot(), 2));
-		binaryTree.setRoot(binaryTree.insert(binaryTree.getRoot(), 4));
-		binaryTree.setRoot(binaryTree.insert(binaryTree.getRoot(), 1));
+		binaryTree.insert(binaryTree.getRoot(), 2);
+		binaryTree.insert(binaryTree.getRoot(), 12);
+		binaryTree.insert(binaryTree.getRoot(), -1);
+		binaryTree.insert(binaryTree.getRoot(), 0);
+		binaryTree.insert(binaryTree.getRoot(), 9);
 		binaryTree.inorder(binaryTree.getRoot());
 	}
 }
