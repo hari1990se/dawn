@@ -37,7 +37,12 @@ class Node
 
 class BinaryTree
 {
-	private Node root; 	
+	private Node root;
+
+	BinaryTree()
+	{
+		root = null;
+	}
 
 	public Node getRoot()
 	{
