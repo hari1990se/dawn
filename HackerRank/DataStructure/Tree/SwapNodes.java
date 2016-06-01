@@ -13,9 +13,6 @@ class BinaryTree
 	{
 		root = null;
 	}
-	/*
-	Why this is not required
-	*/
 
 	public void insertion(Node root, int data)
 	{
