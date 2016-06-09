@@ -52,7 +52,7 @@ class BinaryTree
 	public void setRoot(Node root)
 	{
 		this.root = root;
-	}
+}	
 
 	public void insert(Node root, int data)
 	{
