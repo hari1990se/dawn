@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Learn java script </title>
+	<script type="text/javascript">
+		document.write("<h1> Welcome </h1>");
+		alert("Got you");
+		prompt("Enter your name");
+		function changeText()
+		{
+			document.getElementById("test").innerHTML = "Why did you change me?";
+		}
+	</script>
+</head>
+<body>
+<p id = "test"> Click on this button to change this text </p>
+<form>
+	<input type="button" value="Click" onclick="changeText()"/>
+</form>
+</body>
+</html>
