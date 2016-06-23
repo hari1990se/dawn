@@ -87,6 +87,58 @@ class BinaryTree
 			inorder(root.getLarge());
 		}
 	}
+
+	public static void join(Node a, Node b)
+	{
+		a.setLarge(b);
+		b.setSmall(a);
+	}
+
+	public static Node append(Node a, Node b)
+	{
+		if(a == null)
+		{
+			return b;
+		}
+		if(b == null)
+		{
+			return a;
+		}
+		Node aLast = a.getSmall();
+		Node bLast = b.getSmall();
+		join(aLast, b);
+		join(bLast, a);
+		return a;
+	}
+
+	public static Node treeToList(Node root)
+	{
+		if(root == null)
+		{
+			return null;
+		}
+		Node aList = treeToList(root.getSmall());
+		Node bList = treeToList(root.getLarge());
+		root.setSmall(root);
+		root.setLarge(root);
+		aList = append(aList, root);
+		aList = append(aList, bList);
+		return aList;
+	}
+
+	public void printList(Node head)
+	{
+		Node current = head;
+		while(current != null)
+		{
+			System.out.print(current.getData() + "->");
+			current = current.getLarge();
+			if(current == head)
+			{
+				break;
+			}
+		}
+	}
 }
 
 class TreeListRecursion
@@ -99,5 +151,8 @@ class TreeListRecursion
 		binaryTree.insert(binaryTree.getRoot(), 0);
 		binaryTree.insert(binaryTree.getRoot(), 9);
 		binaryTree.inorder(binaryTree.getRoot());
+		System.out.println("\nList:");
+		Node head = BinaryTree.treeToList(binaryTree.getRoot());
+		binaryTree.printList(head);
 	}
 }
